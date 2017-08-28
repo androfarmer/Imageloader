@@ -54,5 +54,16 @@ freeline.py
 freeline/
 freeline_project_description.json
 
-#Mac OS
+
+#add by myself
+
+#gradle wrapper
+gradle/
+
+*/.settings/
+*/.DS_Store
 .DS_Store
+*/.idea/
+.idea/
+gradlew
+gradlew.bat
