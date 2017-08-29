@@ -7,6 +7,7 @@ import android.widget.ImageView;
 
 import com.vincent.imageloader.cache.DoubleCache;
 import com.vincent.imageloader.config.init.ImageLoaderConfig;
+import com.vincent.imageloader.policy.FIFOPolicy;
 
 public class MainActivity extends AppCompatActivity {
     private ImageView image,image1;
@@ -15,11 +16,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ImageLoaderConfig config=new ImageLoaderConfig();
-        config.setCache(new DoubleCache(this)).setProcessCount(5);
+        config.setCache(new DoubleCache(this)).setThreadCount(5).setLoaderPolicy(new FIFOPolicy());
         ImageLoader.getInstance().init(config);
 
 
-        final String url="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1503298067916&di=d719d3003f1dcdc1f6c81d363cf32aa8&imgtype=0&src=http%3A%2F%2Fpic62.nipic.com%2Ffile%2F20150319%2F12632424_132215178296_2.jpg";
+        final String url="http://imgsrc.baidu.com/imgad/pic/item/267f9e2f07082838b5168c32b299a9014c08f1f9.jpg";
         image= (ImageView) findViewById(R.id.image);
         ImageLoader.getInstance().load(image,url);
         image1= (ImageView) findViewById(R.id.image1);
